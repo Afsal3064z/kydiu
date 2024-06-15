@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "522331265700",
+    "project_id": "kyduchat",
+    "storage_bucket": "kyduchat.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:522331265700:android:4e18a425f08f03d86ea431",
+        "android_client_info": {
+          "package_name": "com.example.kydu"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDe4A1ksN8RmgMZXWDsQFJuzBw1UzL8yoU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

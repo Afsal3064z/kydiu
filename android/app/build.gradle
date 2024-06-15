@@ -1,0 +1,74 @@
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    id "dev.flutter.flutter-gradle-plugin"
+    //id "com.google.gms.google-services"
+}
+
+def localProperties = new Properties()
+def localPropertiesFile = rootProject.file('local.properties')
+if (localPropertiesFile.exists()) {
+    localPropertiesFile.withReader('UTF-8') { reader ->
+        localProperties.load(reader)
+    }
+}
+
+def flutterVersionCode = localProperties.getProperty('flutter.versionCode')
+if (flutterVersionCode == null) {
+    flutterVersionCode = '1'
+}
+
+def flutterVersionName = localProperties.getProperty('flutter.versionName')
+if (flutterVersionName == null) {
+    flutterVersionName = '1.0'
+}
+
+android {
+    namespace "com.example.kydu"
+    compileSdkVersion 34
+    ndkVersion flutter.ndkVersion
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+
+    defaultConfig {
+        applicationId "com.example.kydu"
+        minSdkVersion 21
+        targetSdkVersion flutter.targetSdkVersion
+        versionCode flutterVersionCode.toInteger()
+        versionName flutterVersionName
+    }
+
+    buildTypes {
+        release {
+            signingConfig signingConfigs.debug
+        }
+    }
+}
+
+flutter {
+    source '../..'
+}
+
+dependencies {
+    // implementation 'com.google.firebase:firebase-analytics:23.0.0'
+    // implementation 'com.google.firebase:firebase-messaging:26.0.0' // Add Firebase Messaging dependency
+    // implementation 'com.google.firebase:firebase-bom:30.0.0' // Add Firebase BoM to manage versions
+    // implementation 'com.google.android.gms:play-services-auth:19.2.0' // Add Google Play Services Auth
+
+    // // Add the Awesome Notifications dependency
+    // implementation 'me.carda.awesome_notifications:awesome_notifications:0.0.8' // Update with the latest version
+    // implementation 'me.carda.awesome_notifications:awesome_notifications_firebase_library:0.0.8'
+}
+
+//apply plugin: 'com.google.gms.google-services'
